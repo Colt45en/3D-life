@@ -5,33 +5,40 @@ A production-ready Next.js 15 application with modern tech stack including React
 ## 🚀 Tech Stack
 
 ### Core Framework
+
 - **Next.js 15** - App Router with React Server Components
 - **React 19** - Latest React with improved performance
 - **TypeScript** - Strict mode enabled for type safety
 
 ### UI & Styling
+
 - **Tailwind CSS** - Utility-first CSS framework
 - **shadcn/ui** - High-quality, accessible UI components
 - **Framer Motion** - Production-ready animations
 
 ### State Management
+
 - **TanStack Query v5** - Server state management with caching
 - **Zustand** - Lightweight client state management
 
 ### Database & ORM
+
 - **Drizzle ORM** - Type-safe SQL ORM
 - **PostgreSQL** - Production database
 
 ### Authentication
+
 - **NextAuth/Auth.js v5** - Complete authentication solution
 
 ### Code Quality
+
 - **ESLint** - Code linting with Next.js config
 - **Prettier** - Code formatting with Tailwind plugin
 - **Husky** - Git hooks for pre-commit checks
 - **lint-staged** - Run linters on staged files
 
 ### Testing
+
 - **Vitest** - Fast unit testing framework
 - **Testing Library** - React component testing
 
@@ -39,40 +46,46 @@ A production-ready Next.js 15 application with modern tech stack including React
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - PostgreSQL database
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/Colt45en/3D-life.git
 cd 3D-life
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Set up environment variables:
+
 ```bash
 cp .env.example .env
 ```
 
 Edit `.env` and add your configuration:
+
 - `DATABASE_URL` - PostgreSQL connection string
 - `AUTH_SECRET` - Generate with `openssl rand -base64 32`
 - `AUTH_GITHUB_ID` - GitHub OAuth App ID
 - `AUTH_GITHUB_SECRET` - GitHub OAuth App Secret
 
 4. Set up the database:
+
 ```bash
 npm run db:push
 ```
 
 5. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -123,16 +136,20 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 ## 🎯 Key Features
 
 ### Server Actions
+
 Use Server Actions for mutations with automatic revalidation:
+
 ```typescript
-"use server"
+"use server";
 export async function createPost(formData: FormData) {
   // Server-side validation and database operations
 }
 ```
 
 ### Server Components
+
 Server Components for data fetching with direct database access:
+
 ```typescript
 export default async function Page() {
   const data = await db.query.posts.findMany();
@@ -141,16 +158,20 @@ export default async function Page() {
 ```
 
 ### TanStack Query
+
 Client-side data fetching with caching:
+
 ```typescript
 const { data, isLoading } = useQuery({
-  queryKey: ['posts'],
+  queryKey: ["posts"],
   queryFn: fetchPosts,
 });
 ```
 
 ### Zustand State Management
+
 Simple client state management:
+
 ```typescript
 const count = useAppStore((state) => state.count);
 const increment = useAppStore((state) => state.increment);
@@ -197,6 +218,7 @@ The project is optimized for Vercel deployment with automatic configuration.
 ### Environment Variables
 
 Ensure all required environment variables are set in your deployment platform:
+
 - `DATABASE_URL`
 - `AUTH_SECRET`
 - `AUTH_GITHUB_ID`
@@ -206,6 +228,7 @@ Ensure all required environment variables are set in your deployment platform:
 ## 📝 Code Quality
 
 Pre-commit hooks are configured with Husky to:
+
 - Run ESLint on staged files
 - Format code with Prettier
 - Ensure code quality before commits

@@ -7,13 +7,13 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm">
         <AnimatedHero />
-        
+
         <div className="mt-8 flex flex-col items-center gap-4">
           <h1 className="text-4xl font-bold">3D Life</h1>
           <p className="text-lg text-muted-foreground">
             Next.js 15 • React 19 • TypeScript • Tailwind CSS
           </p>
-          
+
           <div className="mt-4 flex gap-4">
             <Button asChild>
               <Link href="/dashboard">Dashboard</Link>
