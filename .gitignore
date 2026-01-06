@@ -29,3 +29,14 @@ game28.dta
 
 # Log files
 warnings.log
+
+# Next.js
+.next/
+out/
+node_modules/
+.vercel
+.env*.local
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
