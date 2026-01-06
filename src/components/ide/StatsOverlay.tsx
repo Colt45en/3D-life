@@ -11,6 +11,7 @@ export default function StatsOverlay() {
   useEffect(() => {
     let frameCount = 0
     let lastTime = performance.now()
+    let animationFrameId: number
 
     const updateFps = () => {
       frameCount++
@@ -23,11 +24,11 @@ export default function StatsOverlay() {
         lastTime = currentTime
       }
 
-      requestAnimationFrame(updateFps)
+      animationFrameId = requestAnimationFrame(updateFps)
     }
 
-    const id = requestAnimationFrame(updateFps)
-    return () => cancelAnimationFrame(id)
+    animationFrameId = requestAnimationFrame(updateFps)
+    return () => cancelAnimationFrame(animationFrameId)
   }, [])
 
   return (

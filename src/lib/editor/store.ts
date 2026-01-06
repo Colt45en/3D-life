@@ -3,6 +3,8 @@ import { Entity, EditorState, ToolMode, Prefab, Transform } from './types'
 import { CommandHistory } from './commands'
 import { generateId, generatePrefixedId } from '../core/ids'
 
+const MAX_COLOR_VALUE = 0xFFFFFF
+
 interface EditorStore extends EditorState {
   commandHistory: CommandHistory
   
@@ -59,7 +61,7 @@ export const useEditorStore = create<EditorStore>((set, get) => ({
         rotation: [0, 0, 0],
         scale: [1, 1, 1]
       },
-      color: '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'),
+      color: '#' + Math.floor(Math.random() * MAX_COLOR_VALUE).toString(16).padStart(6, '0'),
       visible: true
     }
     
